@@ -1,0 +1,48 @@
+{
+  "title": "AI Text Polisher for macOS",
+  "rules": [
+    {
+      "description": "Option+Shift+1 polish selected text; Option+Shift+2 translate selected text",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "1",
+            "modifiers": {
+              "mandatory": ["option", "shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": ["left_command"]
+            },
+            {
+              "shell_command": "/bin/zsh -lc 'sleep 0.3; /bin/zsh \"$HOME/.config/text_polisher/macos/text-polisher/text-polisher.sh\" polish --skip-copy'"
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "2",
+            "modifiers": {
+              "mandatory": ["option", "shift"],
+              "optional": ["caps_lock"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "c",
+              "modifiers": ["left_command"]
+            },
+            {
+              "shell_command": "/bin/zsh -lc 'sleep 0.3; /bin/zsh \"$HOME/.config/text_polisher/macos/text-polisher/text-polisher.sh\" translate --skip-copy'"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
